@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/module.css">
+    <link rel="stylesheet" href="assets/css/state.css">
     <title>Gif Compiler</title>
 </head>
 <body>
     <header>
-        <input>
+        <input type="text" placeholder="Search GIPHY">
     </header>
     <main>
-        <div class="gif-navigation"></div>
-        <div class="gif-display"></div>
+        <div class="grid">
+            <div id="gif-navigation">
+                <a href="#" class="navigation-option" data-query="Spiderman">Spider-Man</a>
+                <a href="#" class="navigation-option active" data-query="Captain america">Captain America</a>
+            </div>
+            <div id="gif-display"></div>
+        </div>
     </main>
 </body>
 </html>

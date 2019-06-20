@@ -1,0 +1,32 @@
+html {
+    background-color: #444444;
+}
+
+header {
+    position: fixed;
+    top: 0;
+}
+
+input {
+    height: 100%;
+    width: Calc(100vw - 40px);
+    padding: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+main {
+    background-color: #eeeeee;
+    width: 960px;
+    display: block;
+    margin: 84px auto 10px auto;
+    padding: 10px;
+}
+
+a {
+    padding: 10px;
+    font-size: 18px;
+    color: #777777;
+    text-decoration: none;
+    display: block;
+}
