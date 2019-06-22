@@ -47,6 +47,12 @@ $(document).ready(function() {
         removeFromFavourites(gifId) {
             this.favourites.splice(parseInt(gifId), 1);
             localStorage.setItem("favourites", JSON.stringify(this.favourites))
+        },
+        loadFavourites() {
+            for (let i = 0; i < JSON.parse(localStorage.getItem("favourites")).length; i++) {
+                let gif = `<div id="${i}" ` + JSON.parse(localStorage.getItem("favourites"))[i]
+                $("#gif-display").append(gif);
+            }
         }
     }
     var Search = {
@@ -123,10 +129,7 @@ $(document).ready(function() {
             Search.searchTerm(term);
         }
         else {
-            for (let i = 0; i < JSON.parse(localStorage.getItem("favourites")).length; i++) {
-                let gif = `<div id="${i}" `+JSON.parse(localStorage.getItem("favourites"))[i]
-                $("#gif-display").append(gif);
-            }
+            Favourites.loadFavourites();
         }
     })
 
@@ -152,10 +155,7 @@ $(document).ready(function() {
         Favourites.removeFromFavourites(gifId);
         alert("Removed from favourites!")
         $("#gif-display").empty();
-        for (let i = 0; i < JSON.parse(localStorage.getItem("favourites")).length; i++) {
-            let gif = `<div id="${i}" ` + JSON.parse(localStorage.getItem("favourites"))[i]
-            $("#gif-display").append(gif);
-        }
+        Favourites.loadFavourites();
     })
 
     if (localStorage.getItem("terms")) {
@@ -167,8 +167,6 @@ $(document).ready(function() {
     Search.writeAllTerms();
     Search.setActiveTerm("favourites");
     if (localStorage.getItem("favourites")) {
-        for (let gif of JSON.parse(localStorage.getItem("favourites"))) {
-            $("#gif-display").append(gif);
-        }
+        Favourites.loadFavourites()
     }
 })
