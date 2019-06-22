@@ -10,19 +10,25 @@
     <link rel="stylesheet" href="assets/css/module.css">
     <link rel="stylesheet" href="assets/css/state.css">
     <title>Gif Compiler</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
-        <input type="text" placeholder="Search GIPHY">
+        <input id="search" type="text" placeholder="Search GIPHY">
     </header>
     <main>
         <div class="grid">
             <div id="gif-navigation">
-                <a href="#" class="navigation-option" data-query="Spiderman">Spider-Man</a>
-                <a href="#" class="navigation-option active" data-query="Captain america">Captain America</a>
+                <a href="#" class="navigation-option active" id="favourites">Favourites</a>
+                <div id="search-terms">
+
+                </div>
             </div>
             <div id="gif-display"></div>
         </div>
     </main>
+
+    <script src="assets/javascript/logic.js"></script>
 </body>
 </html>
