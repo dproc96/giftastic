@@ -21,17 +21,39 @@
 //1. Create an object called Format to store the formatting methods
 var Format = {
     formatForNavigation(string) {
+        let characterArray = this.splitString(string)
+        characterArray = this.removeSpacesAtStart(characterArray)
+        characterArray = this.capitalizeFirstLetter(characterArray)
+        characterArray = this.capitalizeFirstLetterOfWords(characterArray)
+        return characterArray.join("")
+    },
+    formatForQuery(string) {
+        let characterArray = this.splitString(string)
+        characterArray = this.removeSpacesAtStart(characterArray)
+        characterArray = this.capitalizeFirstLetter(characterArray)
+        return characterArray.join("")
+    },
+    splitString(string) {
         let characterArray = string.toLowerCase().split("");
+        return characterArray;
+    },
+    removeSpacesAtStart(characterArray) {
         while (characterArray[0] === " ") {
             characterArray.shift();
         }
+        return characterArray;
+    },
+    capitalizeFirstLetter(characterArray) {
         characterArray[0] = characterArray[0].toUpperCase();
+        return characterArray;
+    },
+    capitalizeFirstLetterOfWords(characterArray) {
         for (let i = 0; i < characterArray.length; i++) {
             if (characterArray[i] === " ") {
                 characterArray[i + 1] = characterArray[i + 1].toUpperCase();
             }
         }
-        return characterArray.join("");
+        return characterArray
     }
 }
 //2. Create an object called Favorites to store favorite array and methods
