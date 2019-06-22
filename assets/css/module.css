@@ -1,3 +1,10 @@
+.navigation-div {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+    color: #777777;
+}
+
 #search-button {
     display: none;
 }

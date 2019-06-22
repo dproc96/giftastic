@@ -61,13 +61,24 @@ $(document).ready(function() {
             let termForNav = Format.formatForNavigation(term);
             let termForQuery = Format.formatForQuery(term);
             let termID = termForQuery.toLowerCase().split(" ").join("-");
+            let navDiv = $("<div>");
+            navDiv.attr("class","navigation-div");
+            navDiv.attr("id","div-" + termID);
+            let deleteButton = $("<a>");
+            deleteButton.attr("href", "#");
+            deleteButton.attr("class", "delete-search-term");
+            deleteButton.attr("data-id", "div-" + termID);
+            deleteButton.attr("data-term", term);
+            deleteButton.text("X");
+            navDiv.append(deleteButton)
             let a = $("<a>");
             a.attr("href", "#");
             a.text(termForNav);
             a.attr("data-query", termForQuery);
             a.attr("id", termID);
             a.attr("class", "navigation-option");
-            $("#search-terms").prepend(a);
+            navDiv.append(a)
+            $("#search-terms").prepend(navDiv);
             this.setActiveTerm(termID);
         },
         searchTerm(term) {
@@ -139,6 +150,15 @@ $(document).ready(function() {
         else {
             Favourites.loadFavourites();
         }
+    })
+
+    $(document).on("click", ".delete-search-term", function() {
+        let term = $(this).attr("data-term");
+        let termID = $(this).attr("data-id");
+        let index = Search.terms.indexOf(term);
+        Search.terms.splice(index, 1);
+        localStorage.setItem("terms", JSON.stringify(Search.terms));
+        $(`#${termID}`).remove();
     })
 
     $(document).on("click", ".gif", function() {
