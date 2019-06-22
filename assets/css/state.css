@@ -9,3 +9,35 @@ a:hover {
 .active:hover {
     color: #222222;
 }
+
+@media screen and (max-width: 970px) {
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 75px auto;
+        grid-template-areas: 
+        'nav' 
+        'display';
+    }
+
+    #gif-navigation {
+        border-right: none;
+        border-bottom: 2px solid #cccccc;
+    }
+
+    #search-button {
+        display: block;
+    }
+
+    main {
+        width: 90vw;
+        margin: 144px auto 10px auto;
+    }
+
+    .gif-div {
+        width: 100%;
+    }
+
+    .gif {
+        width: 100%;
+    }
+}

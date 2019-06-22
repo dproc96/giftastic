@@ -104,18 +104,26 @@ $(document).ready(function() {
         }
     }
 
+    function initiateSearch() {
+        let term = $("#search").val();
+        $("#search").val("");
+        if (term.length > 0) {
+            Search.terms.push(term);
+            Search.addToSearchNav(term);
+            $("#gif-display").empty();
+            Search.searchTerm(Format.formatForQuery(term));
+            localStorage.setItem("terms", JSON.stringify(Search.terms));
+        }
+    }
+
     $(document).keydown(function(event) {
         if (event.keyCode === 13) {
-            let term = $("#search").val();
-            $("#search").val("");
-            if (term.length > 0) {
-                Search.terms.push(term);
-                Search.addToSearchNav(term);
-                $("#gif-display").empty();
-                Search.searchTerm(Format.formatForQuery(term));
-                localStorage.setItem("terms", JSON.stringify(Search.terms));
-            }
+            initiateSearch()
         }
+    })
+
+    $("#search-button").click(function() {
+        initiateSearch()
     })
     
     $(document).on("click", ".navigation-option", function() {

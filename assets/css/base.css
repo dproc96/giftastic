@@ -15,6 +15,13 @@ input {
     text-align: center;
 }
 
+button {
+    width: 100vw;
+    padding: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
 main {
     background-color: #eeeeee;
     width: 960px;
