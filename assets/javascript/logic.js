@@ -100,7 +100,8 @@ $(document).ready(function() {
 
     $(document).keydown(function(event) {
         if (event.keyCode === 13) {
-            let term = $("#search").val()
+            let term = $("#search").val();
+            $("#search").val("");
             if (term.length > 0) {
                 Search.terms.push(term);
                 Search.addToSearchNav(term);
